@@ -1,4 +1,4 @@
-OzDB version 0.0.1
+OzDB version 0.02
 =================
 
 The README is used to introduce the module and provide instructions on
@@ -21,6 +21,16 @@ To install this module type the following:
    make test
    make install
 
+   **special note**
+   For Windows users (activestate) who do not have cygwin and/or
+   perl compiled with mingw32, or the availability of make, you
+   might want to download nmake from:
+   http://download.microsoft.com/download/vc15/patch/1.52/w95/en-us/nmake15.exe
+   There is also a batch file distributed with OzDB to help with
+   nmake, it is unsupported and should be self explanitory.  It's
+   name is OzDBnmake.bat
+   **end note**
+   
 DEPENDENCIES
 
 This module requires these other modules and libraries:
@@ -38,6 +48,8 @@ however the version will be reset to 0.0.1 for distribution on cpan and
 other PAUSE mirrors.  Please begin using the new versioning scheme and
 submit patches, bug reports, help requests, feature requests and any other
 inquiry in a ticket at http://support.linuxops.net
+
+Revisioned to 0.02 for compatibility with CPAN versioning.
 
 COPYRIGHT AND LICENCE
 

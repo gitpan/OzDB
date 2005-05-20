@@ -29,7 +29,13 @@ our @EXPORT = qw(
 
 );
 
-our $VERSION = '0.0.2';
+our $VERSION = '0.02';
+# 5/20/2005, NeXeN:  Yet another versioning scheme.  Altho PAUSE/CPAN
+# allows for x.y.z versioning schema, we'll move to x.yz so it'll show
+# the minor version number correctly, with the revision point as the
+# last digit.
+#
+#
 
 # 5/19/2005, NeXeN: The new versioning scheme has been reset back to
 # 0.0.1 for distribution with cpan.  Please see the
