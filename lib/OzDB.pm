@@ -29,9 +29,9 @@ our @EXPORT = qw(
 
 );
 
-our $VERSION = '0.0.1';
+our $VERSION = '0.0.2';
 
-# The new versioning scheme has been reset back to
+# 5/19/2005, NeXeN: The new versioning scheme has been reset back to
 # 0.0.1 for distribution with cpan.  Please see the
 # Changes file for more information.
 #
@@ -115,6 +115,9 @@ if (not defined $_[3] or not defined $_[2] or $_[3] !~ /^\d+$/)
           print "Adding user $_[2] at authlevel $_[3].\n";
 
           # re-opening of the file, this time in append mode
+          # doesn't seem to be too much of an IO drain, I get 0 ms execution
+          # times tested up to 25mb file.  Until sockets are implemented,
+          # this should be fine.
           open(USRDB, ">>$_[0]") or die "could not open $_[0] for append!\n";
           # print our data to the file
           print USRDB "$_[2] $_[3]\n";
@@ -274,7 +277,19 @@ use OzDB;
 =head1 DESCRIPTION
 
 The OzDB Perl module handles authentication and access control for the OzBot
-based utility bots.
+based utility bots.  The basic database format is the authentication schema.
+This is based on a numerical ordering authentication system.  If the user's
+Authentication level is higher than that of the command's authentication level
+then the user is authenticated for the command and the command's special
+arguments will be returned to the function.  This is useful for BACKEND
+authentication only, where the usernames are entered by an already physically
+or password authorized connection.  This is for information purposes, and is
+not to be used as an actual database such as MySQL or PgSQL.  This is written
+to faciliate developers with rudimentary information storage and any protected
+information, including passwords, should not be stored in this database.  It
+is simply a method to allow applications to store and retrieve data in an
+arbitrary and extensible format with special delimiters.
+
 
 =head2 EXPORT
 
@@ -298,7 +313,7 @@ http://support.linuxops.net
 
 =head1 AUTHOR
 
-NeXeN, aka Osbourne nexen@linuxops.net
+NeXeN, aka Osbourne nexen@cpan.org
 
 =head1 COPYRIGHT AND LICENSE
 

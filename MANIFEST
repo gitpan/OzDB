@@ -4,3 +4,4 @@ MANIFEST
 README
 t/OzDB.t
 lib/OzDB.pm
+META.yml                                 Module meta-data (added by MakeMaker)
